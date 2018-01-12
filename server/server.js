@@ -56,7 +56,7 @@ app.use(bodyParser.json())
 app.use('/user', userRouter);
 
 
-//使用中间件
+//使用中间件进行SSR(后端渲染)
 app.use(function (req, res, next) {
     //设置白名单
     if (req.url.startsWith('/user/') || req.url.startsWith('/static/')) {
@@ -107,6 +107,8 @@ app.use('/', express.static(path.resolve('build')))
 
 
 //原来是app.listen
-server.listen(9093, function () {
+//Heroku会自动向这个env变量注入Heroku中指定的变量
+const PORT = process.env.PORT || 9093;
+server.listen(PORT, function () {
     console.log('Node app start at port 9093')
 });

@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 
 
 //link to mongodb and use imooc collection, will create it if not exist
+// mongoLab user: imoocmw, pwd:)987Poiu
 const DB_URL = 'mongodb://localhost:27017/imooc-chat';
+const Online_DB_URL = 'mongodb://imoocmw:)987Poiu@ds139844.mlab.com:39844/imooc-chat';
 mongoose.connect(DB_URL);
 
 const models = {
